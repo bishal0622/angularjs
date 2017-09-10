@@ -1,0 +1,43 @@
+<section class="home-wrapper" ng-init="vm.loadAll()">
+    <div class="home-container container" style="    margin-top: 2%;">
+        <div class="row justify-content-center">
+            <div class="card" style="width: 50vw">
+                <div class="card-content text-center">
+                    <h1><span class="card-title text-center" style="font-size: larger;font-weight: 500;">Welcome</span></h1>
+                    <div class="form-container">
+                        <form class="form-group" style="width:100%; padding:5%">
+                            <input class="form-control" type="text" placeholder="username" ng-model="vm.user.username">
+                            <input class="form-control" type="text" placeholder="password" ng-model="vm.user.password">
+                            <div class="btn-group " >
+                                <button class="btn btn-primary" ng-if="!vm.flag" ng-click="vm.submit()">save</button>
+                                <button class="btn btn-warning" ng-if="vm.flag" ng-click="vm.update()">update</button>
+                            </div>
+                        </form>
+                    </div>
+                <div class="card-action text-center">
+                    <h3>Detail Logs</h3>
+                    <hr>
+                    <table class="table-striped text-center">
+                        <tr>
+                            <th>Id</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Buttons</th>
+                        </tr>
+                        <tr ng-repeat="s in vm.users">
+                            <td> {{s.id}}</td>
+                            <td> {{s.username}}</td>
+                            <td> {{s.password}}</td>
+                            <td>
+                                <button class="btn-floating btn-large red" ng-click="vm.edit(s.id)">Edit</button>
+                                <button class="btn-floating btn-large red" ng-click="vm.remove(s.id)">Del</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
